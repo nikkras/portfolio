@@ -1,0 +1,9 @@
+@import 'src/style/shared.scss';
+
+.About {
+  color: var(--main-white);
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

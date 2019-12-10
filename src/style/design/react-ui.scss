@@ -1,0 +1,92 @@
+@import 'shared.scss';
+
+#root {
+  //smooth scroll
+  display: block;
+  position: absolute !important;
+  width: 100%;
+
+  .PageOverlay {
+    @include z-index(page-overlay);
+  }
+
+  .MainTopNav {
+    @include z-index(main-nav);
+    padding: 2rem $navbar-padding-mobile;
+    height: $navbar-height-mobile;
+    background-color: transparent;
+
+    @include media('>=medium') {
+      padding: var(--space-md) var(--space-md);
+    }
+    @include media('>=large') {
+      padding: var(--space-md) var(--space-md);
+    }
+
+    .nav .nav-logo {
+      width: px-to-rem(60);
+    }
+
+    .nav .nav-item {
+      a {
+        font-size: var(--text-md);
+        color: var(--main-white);
+      }
+    }
+  }
+
+  .HamburgerMenu {
+    top: $navbar-height-mobile;
+    @include z-index(sidebar);
+    height: calc(100% - #{$navbar-height-mobile});
+    border-left: none;
+    background-color: transparent;
+
+    .nav-item a {
+      color: var(--main-white);
+    }
+
+    @include media('>=medium') {
+      max-width: px-to-rem(300);
+      border-left: 1px solid rgba($black, 0.3);
+    }
+  }
+
+  .HamburgerButton .bar {
+    background: var(--main-white);
+  }
+
+  .Footer {
+    @include z-index(foter);
+    padding: 2rem $navbar-padding-mobile;
+    text-align: center;
+    background-color: var(--main-black);
+    color: var(--main-white);
+
+    @include media('>=medium') {
+      padding: var(--space-lg);
+    }
+
+    @include media('>=large') {
+      padding: var(--space-lg);
+    }
+
+    .footer-nav {
+      color: var(--main-white);
+      .nav-list {
+        a {
+          color: var(--main-white);
+          font-size: var(--text-xs);
+        }
+      }
+    }
+    .footer-copyright {
+      color: var(--main-white);
+      font-size: var(--text-xs);
+    }
+  }
+
+  .RotateScreen {
+    @include z-index(rotate);
+  }
+}

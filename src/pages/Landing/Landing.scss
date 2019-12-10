@@ -1,0 +1,72 @@
+@import 'src/style/shared.scss';
+
+.Landing {
+  position: relative;
+  text-align: left;
+  // padding: px-to-rem(20) $navbar-padding-mobile;
+  padding: var(--space-xxxl) var(--space-lg) var(--space-xl);
+  color: var(--main-white);
+
+  @include media('>=medium') {
+    padding: var(--space-xxxl) var(--space-xl) var(--space-xl);
+  }
+  @include media('>=large') {
+    padding: var(--space-xxl) var(--space-xxl) var(--space-xxl);
+  }
+}
+
+.Landing__bg {
+  left: 0;
+  top: 0;
+  position: absolute;
+  @include fill;
+  z-index: -1;
+
+  &:focus {
+    outline: none;
+  }
+  canvas {
+    display: block;
+    @include fill;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.Landing__header {
+  padding-top: var(--space-xxl);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-xl);
+  margin-top: 0;
+}
+.Landing__header__title {
+  font-size: var(--text-xl);
+}
+
+.Landing__header__icon {
+  fill: var(--main-white);
+  width: px-to-rem(30);
+}
+.Landing__header__mailLink {
+  font-size: var(--text-xs);
+}
+
+.Landing__works {
+  h2 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+}
+
+.Landing__works__content {
+  a {
+    display: block;
+    font-size: var(--text-md);
+    margin-bottom: var(--space-sm);
+    text-decoration: none;
+    // font-weight: 600;
+  }
+}
