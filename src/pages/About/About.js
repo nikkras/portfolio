@@ -56,8 +56,6 @@ class About extends React.PureComponent {
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
         <h1>About</h1>
         <PrefetchLink link={routeKeys.Landing}>Home</PrefetchLink>
-        <img src="./assets/images/1.jpg" alt="saf" />
-        <img src="./assets/images/2.jpg" alt="saf" />
       </section>
     );
   }
