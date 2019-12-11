@@ -3,6 +3,7 @@
 #Preloader {
   @include flex-center;
   @include position-100(fixed);
+  flex-flow: column;
   background-color: $black;
   @include z-index(preloader);
 
@@ -11,6 +12,7 @@
     fill: $white;
     width: px-to-rem(50);
     height: px-to-rem(50);
+    display: block;
   }
 
   @keyframes infinite-spinning {
@@ -21,4 +23,14 @@
       transform: rotate(360deg);
     }
   }
+}
+
+.Preloader__icon {
+  display: block;
+  color: var(--main-white);
+  margin-bottom: var(--space-md);
+}
+.Preloader__progress {
+  display: block;
+  color: var(--main-white);
 }

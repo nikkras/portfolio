@@ -47,6 +47,7 @@ class Preloader extends React.PureComponent {
   }
 
   onProgress = val => {
+    this.progress.children[0].innerText = `${Math.round(val * 100)}%`;
     this.props.setProgress(val);
   };
 
@@ -63,7 +64,12 @@ class Preloader extends React.PureComponent {
   render() {
     return (
       <section id="Preloader" ref={r => (this.container = r)}>
-        <LoaderIcon className="loader-icon" />
+        <div className="Preloader__icon">
+          <LoaderIcon className="loader-icon" />
+        </div>
+        <div className="Preloader__progress" ref={r => (this.progress = r)}>
+          <span />
+        </div>
       </section>
     );
   }

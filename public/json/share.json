@@ -1,11 +1,11 @@
 {
   "default": {
-    "title": "Jam3 App",
-    "description": "Default description",
-    "keywords": "Jam3,web App,React",
+    "title": "Nikita K",
+    "description": "Nikita Krassiouk Portfolio",
+    "keywords": "web App,React,Nikita Krassiouk,portfolio",
     "og:image": "https://jam3.com/static/media/share.jpg",
     "og:url": "https://generator.jam3.net",
-    "og:site_name": "Jam3",
+    "og:site_name": "Nikita K",
     "twitter:image": "https://jam3.com/static/media/share.jpg",
     "twitter:site": "@jam3",
     "twitter:creator": "@jam3"

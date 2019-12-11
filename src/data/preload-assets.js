@@ -9,7 +9,11 @@ const ASSETS_PATH = './assets/';
  * @const {array} TABLET_ASSETS (Keep an assets list for tablet)
  * @const {array} DESKTOP_ASSETS (Keep an assets list for desktop)
  */
-const GLOBAL_ASSETS = [`${ASSETS_PATH}images/*.png`, `${ASSETS_PATH}images/*.jpg`];
+const GLOBAL_ASSETS = [
+  `${ASSETS_PATH}images/landingBg.png`,
+  `${ASSETS_PATH}images/1.jpg`,
+  `${ASSETS_PATH}images/2.jpg`
+];
 const MOBILE_ASSETS = [];
 const TABLET_ASSETS = [];
 const DESKTOP_ASSETS = [];
