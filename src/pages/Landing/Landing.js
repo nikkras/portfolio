@@ -61,7 +61,7 @@ class Landing extends React.PureComponent {
         <LandingBg />
         <header className="Landing__header">
           <h1 data-scroll data-scroll-speed="0.1" className="Landing__header__title">
-            lorem ipsum
+            Nikita Krassiouk
           </h1>
           <BaseLink
             link="mailto:info@nikkras.com"
