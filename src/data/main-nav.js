@@ -4,13 +4,13 @@ import logo from '../assets/images/logo.png';
 export default {
   logoSrc: logo,
   links: [
-    {
-      text: 'Home',
-      path: routeKeys.Landing
-    },
-    {
-      text: 'About',
-      path: routeKeys.About
-    }
+    // {
+    //   text: 'Home',
+    //   path: routeKeys.Landing
+    // },
+    // {
+    //   text: 'About',
+    //   path: routeKeys.About
+    // }
   ]
 };
