@@ -14,6 +14,4 @@ works:
     link: https://feniciroyalevents.com/
   - title: Altalex
     link: https://altalex.com/
-  - title: Shop Altalex
-    link: hhttps://shop.altalex.com/
 ---
