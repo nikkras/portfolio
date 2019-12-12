@@ -54,7 +54,7 @@ class About extends React.PureComponent {
   render() {
     return (
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
-        <h1>About</h1>
+        <h1>{this.props.pageData.name}</h1>
         <PrefetchLink link={routeKeys.Landing}>Home</PrefetchLink>
       </section>
     );
@@ -64,7 +64,8 @@ class About extends React.PureComponent {
 About.propTypes = checkProps({
   className: PropTypes.string,
   transitionState: PropTypes.string.isRequired,
-  previousRoute: PropTypes.string
+  previousRoute: PropTypes.string,
+  pageData: PropTypes.object
 });
 
 About.defaultProps = {};

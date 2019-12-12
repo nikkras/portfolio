@@ -14,6 +14,13 @@ const Landing = lazy(() => import(/* webpackChunkName: "Landing" */ '../../pages
 const About = lazy(() => import(/* webpackChunkName: "About" */ '../../pages/About/About'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
+const getFields = (collection, id) => {
+  if (collection) {
+    const results = collection.filter(page => page.name === id)[0];
+    return results;
+  }
+};
+
 const Pages = ({ location, ...props }) => {
   return (
     <main className={classnames('Pages', props.className)} role="main">
@@ -22,8 +29,18 @@ const Pages = ({ location, ...props }) => {
           {state => (
             <Suspense fallback={<div className="loading" />}>
               <Switch location={location}>
-                <Route exact path={routeKeys.Landing} render={() => <Landing transitionState={state} />} />
-                <Route exact path={routeKeys.About} render={() => <About transitionState={state} />} />
+                <Route
+                  exact
+                  path={routeKeys.Landing}
+                  render={() => (
+                    <Landing pageData={getFields(props.siteData.pages, 'landing')} transitionState={state} />
+                  )}
+                />
+                <Route
+                  exact
+                  path={routeKeys.About}
+                  render={() => <About pageData={getFields(props.siteData.pages, 'about')} transitionState={state} />}
+                />
                 <Route render={() => <NotFound />} />
               </Switch>
             </Suspense>
@@ -35,7 +52,8 @@ const Pages = ({ location, ...props }) => {
 };
 
 Pages.propTypes = checkProps({
-  className: PropTypes.string
+  className: PropTypes.string,
+  siteData: PropTypes.object.isRequired
 });
 
 Pages.defaultProps = {};

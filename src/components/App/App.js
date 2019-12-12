@@ -12,7 +12,7 @@ import 'default-passive-events';
 import Pages from '../../components/Pages/Pages';
 import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
 
-import { setPreviousRoute, setWindowSize, setLayout, batchActions } from '../../redux/modules/app';
+import { setPreviousRoute, setWindowSize, setLayout, batchActions, setSiteData } from '../../redux/modules/app';
 import { setIsMobileMenuOpen } from '../../redux/modules/main-nav';
 
 import settings from '../../data/settings';
@@ -93,7 +93,7 @@ class App extends React.PureComponent {
                 />
               </Fragment>
             )}
-            <Pages />
+            <Pages siteData={this.props.siteData} />
             <Footer {...footerData} linkComponent={PrefetchLink} />
           </Fragment>
         )}
@@ -113,6 +113,7 @@ class App extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     layout: state.layout,
+    siteData: state.siteData,
     ready: preloadAssets.length ? state.preloader.ready : true,
     isMobileMenuOpen: state.isMobileMenuOpen
   };
@@ -120,6 +121,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    setSiteData: val => dispatch(setSiteData(val)),
     setPreviousRoute: val => dispatch(setPreviousRoute(val)),
     setLayout: (width, height, layout) => dispatch(batchActions([setWindowSize({ width, height }), setLayout(layout)])),
     setIsMobileMenuOpen: val => dispatch(setIsMobileMenuOpen(val))
@@ -132,7 +134,9 @@ App.propTypes = checkProps({
   setPreviousRoute: PropTypes.func.isRequired,
   isMobileMenuOpen: PropTypes.bool.isRequired,
   setIsMobileMenuOpen: PropTypes.func.isRequired,
-  setLayout: PropTypes.func.isRequired
+  setLayout: PropTypes.func.isRequired,
+  siteData: PropTypes.object.isRequired,
+  setSiteData: PropTypes.func.isRequired
 });
 
 App.defaultProps = {};

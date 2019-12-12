@@ -75,29 +75,14 @@ class Landing extends React.PureComponent {
           </BaseLink>
         </header>
         <section className="Landing__works">
-          {/* <h2>My recent works</h2> */}
           <div className="Landing__works__content">
-            <BaseLink data-scroll data-scroll-speed="0.8" link="https://gbautomazione.it/" target="blank">
-              {sanitazer('G.B. Automazione')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.7" link="https://delave.it/" target="blank">
-              {sanitazer('Delavè')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.6" link="https://brunoeluca.it/" target="blank">
-              {sanitazer('Bruno e Luca')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.5" link="https://paolettiguitars.com/" target="blank">
-              {sanitazer('Paoletti Guitars')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.4" link="https://feniciroyalevents.com/" target="blank">
-              {sanitazer('Fenici Royal Events')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.3" link="https://altalex.com/" target="blank">
-              {sanitazer('Altalex')}
-            </BaseLink>
-            <BaseLink data-scroll data-scroll-speed="0.2" link="https://shop.altalex.com/" target="blank">
-              {sanitazer('Shop Altalex')}
-            </BaseLink>
+            {this.props.pageData.works.map((el, i) => {
+              return (
+                <BaseLink key={el.title} data-scroll data-scroll-speed="0.8" link={el.link} target="blank">
+                  {sanitazer(el.title)}
+                </BaseLink>
+              );
+            })}
           </div>
         </section>
       </section>
@@ -110,7 +95,8 @@ Landing.propTypes = checkProps({
   transitionState: PropTypes.string.isRequired,
   previousRoute: PropTypes.string,
   loaded: PropTypes.bool,
-  setLandingLoaded: PropTypes.func
+  setLandingLoaded: PropTypes.func,
+  pageData: PropTypes.object
 });
 
 Landing.defaultProps = {};
