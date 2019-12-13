@@ -34,6 +34,8 @@ class Preloader extends React.PureComponent {
     const fetchedData = {};
     return await axios.get(`${settings.strapi}pages`).then(res => {
       fetchedData.pages = res.data;
+      console.log(settings.strapi);
+      console.log(fetchedData.pages);
       this.props.setSiteData(fetchedData);
     });
   }
