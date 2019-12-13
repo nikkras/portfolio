@@ -8,10 +8,11 @@ import checkProps from '@jam3/react-check-extra-props';
 
 import './About.scss';
 
+import ReactMarkdown from 'react-markdown';
 import Transition from '../PagesTransitionWrapper';
-import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
+// import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
 import animate from '../../util/gsap-animate';
-import routeKeys from '../../routes/keys';
+// import routeKeys from '../../routes/keys';
 
 class About extends React.PureComponent {
   constructor(props) {
@@ -55,7 +56,9 @@ class About extends React.PureComponent {
     return (
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
         <h1>{this.props.pageData.name}</h1>
-        <PrefetchLink link={routeKeys.Landing}>Home</PrefetchLink>
+        <div className="content">
+          <ReactMarkdown source={this.props.pageData.content} />
+        </div>
       </section>
     );
   }

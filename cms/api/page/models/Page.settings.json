@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "pages",
   "info": {
-    "name": "pages",
+    "name": "page",
     "description": ""
   },
   "options": {
@@ -29,6 +29,9 @@
       "group": "works",
       "type": "group",
       "repeatable": true
+    },
+    "test": {
+      "type": "string"
     }
   }
 }

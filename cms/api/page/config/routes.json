@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/pages",
-      "handler": "Pages.find",
+      "handler": "Page.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/pages/count",
-      "handler": "Pages.count",
+      "handler": "Page.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/pages/:id",
-      "handler": "Pages.findOne",
+      "handler": "Page.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/pages",
-      "handler": "Pages.create",
+      "handler": "Page.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/pages/:id",
-      "handler": "Pages.update",
+      "handler": "Page.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/pages/:id",
-      "handler": "Pages.delete",
+      "handler": "Page.delete",
       "config": {
         "policies": []
       }
