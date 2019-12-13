@@ -8,7 +8,7 @@ const defaultState = {
 };
 
 // Reducer
-export default function preloaderReducer(state = defaultState.preloader, action) {
+export function preloaderReducer(state = defaultState.preloader, action) {
   switch (action.type) {
     case keys.SET_PROGRESS:
       return {
@@ -20,6 +20,15 @@ export default function preloaderReducer(state = defaultState.preloader, action)
         ...state,
         ready: action.ready
       };
+    default:
+      return state;
+  }
+}
+
+export function siteDataReducer(state = {}, action) {
+  switch (action.type) {
+    case keys.SET_SITE_DATA:
+      return action.siteData;
     default:
       return state;
   }
@@ -37,5 +46,12 @@ export function setProgress(progress) {
   return {
     type: keys.SET_PROGRESS,
     progress
+  };
+}
+
+export function setSiteData(siteData) {
+  return {
+    type: keys.SET_SITE_DATA,
+    siteData
   };
 }

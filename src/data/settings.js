@@ -1,5 +1,8 @@
 const settings = {};
 
+// strapi url data
+settings.strapi = `${process.env.REACT_APP_STRAPI_URL}`;
+
 // global
 settings.resizeDebounceTime = 10; // in ms
 settings.isDevelopment = process.env.NODE_ENV !== 'production';

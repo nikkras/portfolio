@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "works",
+    "description": ""
+  },
+  "connection": "default",
+  "collectionName": "groups_works",
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

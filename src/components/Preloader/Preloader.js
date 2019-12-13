@@ -1,22 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import preloader from 'preloader';
 import noop from 'no-op';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
+import settings from '../../data/settings';
 
 import './Preloader.scss';
 
 import { ReactComponent as LoaderIcon } from '../../assets/svg/loader.svg';
 
 import animate from '../../util/gsap-animate';
-import { setProgress, setReady } from '../../redux/modules/preloader';
+import { setProgress, setReady, setSiteData } from '../../redux/modules/preloader';
 import preloadAssets from '../../data/preload-assets';
 
 class Preloader extends React.PureComponent {
   async componentDidMount() {
-    await Promise.all([this.setTimer(), this.setLoader()]);
+    await Promise.all([this.setTimer(), this.setData(), this.setLoader()]);
     this.setDone();
   }
 
@@ -26,6 +28,14 @@ class Preloader extends React.PureComponent {
 
   async setTimer() {
     return await wait(this.props.minDisplayTime);
+  }
+
+  async setData() {
+    const fetchedData = {};
+    return await axios.get(`${settings.strapi}pages`).then(res => {
+      fetchedData.pages = res.data;
+      this.props.setSiteData(fetchedData);
+    });
   }
 
   setLoader() {
@@ -83,7 +93,9 @@ Preloader.propTypes = checkProps({
   minDisplayTime: PropTypes.number,
   options: PropTypes.object,
   progress: PropTypes.number,
-  transitionState: PropTypes.string
+  transitionState: PropTypes.string,
+  siteData: PropTypes.object.isRequired,
+  setSiteData: PropTypes.func.isRequired
 });
 
 Preloader.defaultProps = {
@@ -102,14 +114,16 @@ Preloader.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
   return {
     progress: state.preloader.progress,
-    assets: preloadAssets
+    assets: preloadAssets,
+    siteData: state.siteData
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     setProgress: val => dispatch(setProgress(val)),
-    setReady: val => dispatch(setReady(val))
+    setReady: val => dispatch(setReady(val)),
+    setSiteData: val => dispatch(setSiteData(val))
   };
 };
 

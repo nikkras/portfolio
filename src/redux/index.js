@@ -7,10 +7,10 @@ import keys from './keys';
 
 import reducerRegistry from './reducer-registry';
 
-import preloaderReducer from './modules/preloader';
+import { preloaderReducer, siteDataReducer } from './modules/preloader';
 import mainNavReducer from './modules/main-nav';
 
-import { windowSizeReducer, previousRouteReducer, layoutReducer, siteDataReducer } from './modules/app';
+import { windowSizeReducer, previousRouteReducer, layoutReducer } from './modules/app';
 
 let store;
 const initialState = {};

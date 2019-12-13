@@ -1,6 +1,6 @@
 import keys from '../keys';
 import layout from '../../util/layout';
-const defaultData = require(`../../data/config-data.json`);
+// const defaultData = require(`../../data/config-data.json`);
 
 const defaultState = {
   windowSize: {
@@ -8,8 +8,7 @@ const defaultState = {
     height: window.innerHeight
   },
   previousRoute: null,
-  layout: layout.all,
-  siteData: defaultData
+  layout: layout.all
 };
 
 // Reducers
@@ -25,10 +24,6 @@ export function layoutReducer(state = defaultState.layout, { type, layout }) {
   return type === keys.SET_LAYOUT && Boolean(Object.keys(layout).filter(key => state[key] !== layout[key]).length)
     ? layout
     : state;
-}
-
-export function siteDataReducer(state = defaultState.siteData, { type, siteData }) {
-  return type === keys.SET_SITE_DATA ? siteData : state;
 }
 
 // Action Creator
@@ -59,10 +54,3 @@ export function batchActions(actions) {
     actions
   };
 }
-
-export const setSiteData = function(siteData) {
-  return {
-    type: keys.SET_SITE_DATA,
-    siteData
-  };
-};

@@ -12,7 +12,7 @@ import 'default-passive-events';
 import Pages from '../../components/Pages/Pages';
 import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
 
-import { setPreviousRoute, setWindowSize, setLayout, batchActions, setSiteData } from '../../redux/modules/app';
+import { setPreviousRoute, setWindowSize, setLayout, batchActions } from '../../redux/modules/app';
 import { setIsMobileMenuOpen } from '../../redux/modules/main-nav';
 
 import settings from '../../data/settings';
@@ -44,7 +44,6 @@ class App extends React.PureComponent {
         whyDidYouUpdate(React);
       }
     }
-
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -121,7 +120,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSiteData: val => dispatch(setSiteData(val)),
     setPreviousRoute: val => dispatch(setPreviousRoute(val)),
     setLayout: (width, height, layout) => dispatch(batchActions([setWindowSize({ width, height }), setLayout(layout)])),
     setIsMobileMenuOpen: val => dispatch(setIsMobileMenuOpen(val))
@@ -135,8 +133,7 @@ App.propTypes = checkProps({
   isMobileMenuOpen: PropTypes.bool.isRequired,
   setIsMobileMenuOpen: PropTypes.func.isRequired,
   setLayout: PropTypes.func.isRequired,
-  siteData: PropTypes.object.isRequired,
-  setSiteData: PropTypes.func.isRequired
+  siteData: PropTypes.object.isRequired
 });
 
 App.defaultProps = {};

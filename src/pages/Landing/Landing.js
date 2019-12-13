@@ -76,13 +76,15 @@ class Landing extends React.PureComponent {
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
-            {this.props.pageData.works.map((el, i) => {
-              return (
-                <BaseLink key={el.title} data-scroll data-scroll-speed="0.8" link={el.link} target="blank">
-                  {sanitazer(el.title)}
-                </BaseLink>
-              );
-            })}
+            {this.props.pageData
+              ? this.props.pageData.works.map((el, i) => {
+                  return (
+                    <BaseLink key={el.id} data-scroll data-scroll-speed="0.8" link={el.link} target="blank">
+                      {sanitazer(el.name)}
+                    </BaseLink>
+                  );
+                })
+              : null}
           </div>
         </section>
       </section>

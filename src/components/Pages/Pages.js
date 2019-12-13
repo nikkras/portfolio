@@ -24,6 +24,8 @@ const getFields = (collection, id) => {
 const Pages = ({ location, ...props }) => {
   return (
     <main className={classnames('Pages', props.className)} role="main">
+      {/* {console.log(props.siteData.pages)} */}
+
       <TransitionGroup component={Fragment}>
         <Transition appear key={location.pathname} timeout={getTransitionDuration(location.pathname)}>
           {state => (
