@@ -32,7 +32,12 @@ const Pages = ({ location, ...props }) => {
                 <Route
                   exact
                   path={routeKeys.Landing}
-                  render={() => <Landing pageData={props.siteData.landing} transitionState={state} />}
+                  render={() => (
+                    <Landing
+                      pageData={props.siteData.hasOwnProperty('landing') ? props.siteData.landing : props.siteData}
+                      transitionState={state}
+                    />
+                  )}
                 />
                 {/* <Route
                   exact
