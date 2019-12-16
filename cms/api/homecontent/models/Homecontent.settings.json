@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "pages",
+  "collectionName": "Home Contents",
   "info": {
-    "name": "page",
+    "name": "homecontent",
     "description": ""
   },
   "options": {
@@ -14,23 +14,12 @@
     "comment": ""
   },
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "content": {
-      "type": "richtext"
-    },
-    "media": {
-      "model": "file",
-      "via": "related",
-      "plugin": "upload"
-    },
     "works": {
       "group": "works",
       "type": "group",
       "repeatable": true
     },
-    "test": {
+    "intro": {
       "type": "string"
     }
   }

@@ -14,6 +14,8 @@ import Transition from '../PagesTransitionWrapper';
 import animate from '../../util/gsap-animate';
 // import routeKeys from '../../routes/keys';
 
+import Form from '../../components/Form/Form';
+
 class About extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -52,12 +54,16 @@ class About extends React.PureComponent {
     this.scroll.destroy();
   };
 
+  handleSubmit = () => {};
+
   render() {
     return (
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
+        {console.log(this.props.pageData)}
         <h1>{this.props.pageData.name}</h1>
         <div className="content">
           <ReactMarkdown source={this.props.pageData.content} />
+          <Form />
         </div>
       </section>
     );

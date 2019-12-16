@@ -11,21 +11,19 @@ import routeKeys from '../../routes/keys';
 import { getTransitionDuration } from '../../data/pages-transitions';
 
 const Landing = lazy(() => import(/* webpackChunkName: "Landing" */ '../../pages/Landing/Landing'));
-const About = lazy(() => import(/* webpackChunkName: "About" */ '../../pages/About/About'));
+// const About = lazy(() => import(/* webpackChunkName: "About" */ '../../pages/About/About'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
-const getFields = (collection, id) => {
-  if (collection) {
-    const results = collection.filter(page => page.name === id)[0];
-    return results;
-  }
-};
+// const getFields = (collection, id) => {
+//   if (collection) {
+//     const results = collection.filter(page => page.name === id)[0];
+//     return results;
+//   }
+// };
 
 const Pages = ({ location, ...props }) => {
   return (
     <main className={classnames('Pages', props.className)} role="main">
-      {/* {console.log(props.siteData.pages)} */}
-
       <TransitionGroup component={Fragment}>
         <Transition appear key={location.pathname} timeout={getTransitionDuration(location.pathname)}>
           {state => (
@@ -34,15 +32,13 @@ const Pages = ({ location, ...props }) => {
                 <Route
                   exact
                   path={routeKeys.Landing}
-                  render={() => (
-                    <Landing pageData={getFields(props.siteData.pages, 'landing')} transitionState={state} />
-                  )}
+                  render={() => <Landing pageData={props.siteData.landing} transitionState={state} />}
                 />
-                <Route
+                {/* <Route
                   exact
                   path={routeKeys.About}
-                  render={() => <About pageData={getFields(props.siteData.pages, 'about')} transitionState={state} />}
-                />
+                  render={() => <About pageData={props.siteData.about[0]} transitionState={state} />}
+                /> */}
                 <Route render={() => <NotFound />} />
               </Switch>
             </Suspense>

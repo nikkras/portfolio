@@ -1,9 +1,12 @@
 {
-  "host": "nikkras.com",
-  "port": "${process.env.PORT || 1337}",
+  "host": "localhost",
+  "port": 1337,
   "production": true,
   "proxy": {
-    "enabled": false
+    "enabled": true,
+    "ssl": true,
+    "host": "nikkras.com",
+    "port": 444
   },
   "cron": {
     "enabled": false

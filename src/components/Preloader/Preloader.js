@@ -7,6 +7,7 @@ import noop from 'no-op';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
 import settings from '../../data/settings';
+import backupData from '../../data/backup-data';
 
 import './Preloader.scss';
 
@@ -32,12 +33,16 @@ class Preloader extends React.PureComponent {
 
   async setData() {
     const fetchedData = {};
-    return await axios.get(`${settings.strapi}pages`).then(res => {
-      fetchedData.pages = res.data;
-      console.log(settings.strapi);
-      console.log(fetchedData.pages);
-      this.props.setSiteData(fetchedData);
-    });
+    return await axios.get(`${settings.strapi}homecontents`).then(
+      res => {
+        fetchedData.landing = res.data[0];
+        this.props.setSiteData(fetchedData);
+      },
+      err => {
+        fetchedData.landing = backupData[0];
+        this.props.setSiteData(fetchedData);
+      }
+    );
   }
 
   setLoader() {

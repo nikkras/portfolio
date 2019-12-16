@@ -70,8 +70,7 @@ class Landing extends React.PureComponent {
             className="Landing__header__mailLink"
             target="blank"
           >
-            {sanitazer('Feel free to say Hi 👋')}
-            {/* <HandIcon className="Landing__header__icon" /> */}
+            {this.props.pageData ? sanitazer(this.props.pageData.intro) : null}
           </BaseLink>
         </header>
         <section className="Landing__works">

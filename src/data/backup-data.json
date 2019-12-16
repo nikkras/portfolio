@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "intro": "Feel free to say Hi 👋",
+    "created_at": "2019-12-15T16:30:03.222Z",
+    "updated_at": "2019-12-16T19:12:13.825Z",
+    "works": [
+      { "id": 11, "name": "G.B. Automazione", "link": "https://gbautomazione.it/" },
+      { "id": 18, "name": "Delavè", "link": "https://delave.it/" },
+      { "id": 19, "name": "Bruno e Luca", "link": "https://brunoeluca.it/" },
+      { "id": 20, "name": "Paoletti Guitars", "link": "https://paolettiguitars.com/" },
+      { "id": 22, "name": "Fenici Royal Events", "link": "https://feniciroyalevents.com/" },
+      { "id": 23, "name": "Altalex", "link": "https://altalex.com/" },
+      { "id": 21, "name": "Shop Altalex", "link": "https://shop.altalex.com/" }
+    ]
+  }
+]
