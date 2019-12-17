@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { TextureLoader, DefaultLoadingManager } from 'three';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import preloader from 'preloader';
 import noop from 'no-op';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
-import createEl from 'dom-create-element';
 import settings from '../../data/settings';
 import backupData from '../../data/backup-data';
 
@@ -39,14 +39,12 @@ class Preloader extends React.PureComponent {
         res => {
           fetchedData.landing = res.data[0];
           if (fetchedData.landing.image) {
-            const bgImage = createEl({
-              selector: 'img'
-            });
-            bgImage.src = fetchedData.landing.image;
-            bgImage.onload = () => {
-              fetchedData.landing.imageBg = bgImage;
+            const loader = new TextureLoader();
+            const texture = loader.load(fetchedData.landing.image);
+            DefaultLoadingManager.onLoad = () => {
+              fetchedData.landing.imageBg = texture;
               this.props.setSiteData(fetchedData);
-              resolve(fetchedData);
+              resolve(texture);
             };
           } else {
             this.props.setSiteData(fetchedData);

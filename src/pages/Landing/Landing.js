@@ -52,9 +52,9 @@ class Landing extends React.PureComponent {
   };
 
   animateIn = () => {
-    animate.to(this.logo, 0.8, { autoAlpha: 1, delay: 0.8 });
-    animate.to(this.footer, 0.3, { autoAlpha: 1, delay: 0.7 });
-    animate.to(this.container, 0.3, { autoAlpha: 1, delay: 0.5 });
+    animate.to(this.logo, 0.8, { autoAlpha: 1, delay: 0.7 });
+    animate.to(this.footer, 0.3, { autoAlpha: 1, delay: 0.5 });
+    animate.to(this.container, 0.3, { autoAlpha: 1, delay: 0.3 });
   };
 
   animateOut = () => {
@@ -67,7 +67,7 @@ class Landing extends React.PureComponent {
   render() {
     return (
       <section className={classnames('Landing', this.props.className)} ref={el => (this.container = el)}>
-        <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg.src : null} />
+        <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg : null} />
         <header className="Landing__header">
           <h1 data-scroll data-scroll-speed="0.1" className="Landing__header__title">
             Nikita Krassiouk

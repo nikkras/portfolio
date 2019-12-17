@@ -129,9 +129,9 @@ export default class LandingBg extends PureComponent {
       y: 900
     };
     const loader = new THREE.TextureLoader();
-    const imageBg = this.props.imageBg ? this.props.imageBg : './assets/images/landingBg.jpg';
+    const localBg = './assets/images/landingBg.jpg';
     // this.texture = loader.load('https://source.unsplash.com/collection/151521/1600x900');
-    this.texture = loader.load(imageBg);
+    this.texture = this.props.imageBg ? this.props.imageBg : loader.load(localBg);
     // loader.setCrossOrigin('');
 
     this.texture.minFilter = THREE.NearestFilter;
