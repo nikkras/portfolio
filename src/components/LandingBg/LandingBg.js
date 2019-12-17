@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import * as THREE from 'three';
+import checkProps from '@jam3/react-check-extra-props';
+import PropTypes from 'prop-types';
 import fragmentShader from './fragment.glsl';
 import vertexShader from './vertex.glsl';
 import buffer from './buffer.glsl';
-
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // import animate from '../../util/gsap-animate';
@@ -128,10 +129,10 @@ export default class LandingBg extends PureComponent {
       y: 900
     };
     const loader = new THREE.TextureLoader();
+    const imageBg = this.props.imageBg ? this.props.imageBg : './assets/images/landingBg.jpg';
     // this.texture = loader.load('https://source.unsplash.com/collection/151521/1600x900');
-    // this.texture = loader.load('https://source.unsplash.com/oasArKDSG1E/1600x900');
-    this.texture = loader.load(`./assets/images/landingBg.jpg`);
-    loader.setCrossOrigin('');
+    this.texture = loader.load(imageBg);
+    // loader.setCrossOrigin('');
 
     this.texture.minFilter = THREE.NearestFilter;
     this.texture.magFilter = THREE.NearestFilter;

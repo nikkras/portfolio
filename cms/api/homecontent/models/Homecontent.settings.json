@@ -21,6 +21,9 @@
     },
     "intro": {
       "type": "string"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

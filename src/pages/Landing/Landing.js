@@ -58,7 +58,7 @@ class Landing extends React.PureComponent {
   render() {
     return (
       <section className={classnames('Landing', this.props.className)} ref={el => (this.container = el)}>
-        <LandingBg />
+        <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg.src : null} />
         <header className="Landing__header">
           <h1 data-scroll data-scroll-speed="0.1" className="Landing__header__title">
             Nikita Krassiouk
@@ -70,12 +70,12 @@ class Landing extends React.PureComponent {
             className="Landing__header__mailLink"
             target="blank"
           >
-            {this.props.pageData ? sanitazer(this.props.pageData.intro) : null}
+            {this.props.pageData.intro ? sanitazer(this.props.pageData.intro) : null}
           </BaseLink>
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
-            {this.props.pageData
+            {this.props.pageData.works
               ? this.props.pageData.works.map((el, i) => {
                   return (
                     <BaseLink key={el.id} data-scroll data-scroll-speed="0.8" link={el.link} target="blank">

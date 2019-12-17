@@ -6,6 +6,7 @@ import preloader from 'preloader';
 import noop from 'no-op';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
+import createEl from 'dom-create-element';
 import settings from '../../data/settings';
 import backupData from '../../data/backup-data';
 
@@ -36,7 +37,18 @@ class Preloader extends React.PureComponent {
     return await axios.get(`${settings.strapi}homecontents`).then(
       res => {
         fetchedData.landing = res.data[0];
-        this.props.setSiteData(fetchedData);
+        if (fetchedData.landing.image) {
+          const bgImage = createEl({
+            selector: 'img'
+          });
+          bgImage.src = fetchedData.landing.image;
+          bgImage.onload = () => {
+            fetchedData.landing.imageBg = bgImage;
+            this.props.setSiteData(fetchedData);
+          };
+        } else {
+          this.props.setSiteData(fetchedData);
+        }
       },
       err => {
         fetchedData.landing = backupData[0];
