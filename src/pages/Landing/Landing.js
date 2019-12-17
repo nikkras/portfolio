@@ -6,6 +6,7 @@ import { BaseLink } from '@jam3/react-ui';
 import LocomotiveScroll from 'locomotive-scroll';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
+import select from 'dom-select';
 import sanitazer from '../../util/sanitizer';
 import LandingBg from '../../components/LandingBg/LandingBg';
 
@@ -19,6 +20,10 @@ import animate from '../../util/gsap-animate';
 
 class Landing extends React.PureComponent {
   componentDidMount() {
+    this.logo = select('.nav-logo');
+    this.footer = select('footer');
+    animate.set(this.logo, { autoAlpha: 0 });
+    animate.set(this.footer, { autoAlpha: 0 });
     animate.set(this.container, { autoAlpha: 0 });
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('#root'),
@@ -47,11 +52,15 @@ class Landing extends React.PureComponent {
   };
 
   animateIn = () => {
-    animate.to(this.container, 0.3, { autoAlpha: 1 });
+    animate.to(this.logo, 0.8, { autoAlpha: 1, delay: 0.6 });
+    animate.to(this.footer, 0.3, { autoAlpha: 1, delay: 0.5 });
+    animate.to(this.container, 0.3, { autoAlpha: 1, delay: 0.3 });
   };
 
   animateOut = () => {
     // Note that the total duration should match `exit` duration for the page inside `data/pages-transitions`
+    animate.to(this.logo, 0.3, { autoAlpha: 0 });
+    animate.to(this.footer, 0.3, { autoAlpha: 0 });
     animate.to(this.container, 0.3, { autoAlpha: 0 });
   };
 

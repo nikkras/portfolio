@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import * as THREE from 'three';
-import checkProps from '@jam3/react-check-extra-props';
-import PropTypes from 'prop-types';
+// import checkProps from '@jam3/react-check-extra-props';
+// import PropTypes from 'prop-types';
 import fragmentShader from './fragment.glsl';
 import vertexShader from './vertex.glsl';
 import buffer from './buffer.glsl';

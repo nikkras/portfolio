@@ -32,29 +32,34 @@ class Preloader extends React.PureComponent {
     return await wait(this.props.minDisplayTime);
   }
 
-  async setData() {
-    const fetchedData = {};
-    return await axios.get(`${settings.strapi}homecontents`).then(
-      res => {
-        fetchedData.landing = res.data[0];
-        if (fetchedData.landing.image) {
-          const bgImage = createEl({
-            selector: 'img'
-          });
-          bgImage.src = fetchedData.landing.image;
-          bgImage.onload = () => {
-            fetchedData.landing.imageBg = bgImage;
+  setData() {
+    return new Promise((resolve, reject) => {
+      const fetchedData = {};
+      axios.get(`${settings.strapi}homecontents`).then(
+        res => {
+          fetchedData.landing = res.data[0];
+          if (fetchedData.landing.image) {
+            const bgImage = createEl({
+              selector: 'img'
+            });
+            bgImage.src = fetchedData.landing.image;
+            bgImage.onload = () => {
+              fetchedData.landing.imageBg = bgImage;
+              this.props.setSiteData(fetchedData);
+              resolve(fetchedData);
+            };
+          } else {
             this.props.setSiteData(fetchedData);
-          };
-        } else {
+            resolve(fetchedData);
+          }
+        },
+        err => {
+          fetchedData.landing = backupData[0];
           this.props.setSiteData(fetchedData);
+          resolve(fetchedData);
         }
-      },
-      err => {
-        fetchedData.landing = backupData[0];
-        this.props.setSiteData(fetchedData);
-      }
-    );
+      );
+    });
   }
 
   setLoader() {
