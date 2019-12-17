@@ -44,7 +44,7 @@ class Preloader extends React.PureComponent {
             DefaultLoadingManager.onLoad = () => {
               fetchedData.landing.imageBg = texture;
               this.props.setSiteData(fetchedData);
-              resolve(texture);
+              resolve(fetchedData);
             };
           } else {
             this.props.setSiteData(fetchedData);
