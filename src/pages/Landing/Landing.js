@@ -73,7 +73,7 @@ class Landing extends React.PureComponent {
             Nikita Krassiouk
           </h1>
           <BaseLink
-            link="mailto:info@nikkras.com"
+            link="mailto:info@nikita-krassiouk.me"
             data-scroll
             data-scroll-speed="0.8"
             className="Landing__header__mailLink"
