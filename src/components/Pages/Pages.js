@@ -11,7 +11,7 @@ import routeKeys from '../../routes/keys';
 import { getTransitionDuration } from '../../data/pages-transitions';
 
 const Landing = lazy(() => import(/* webpackChunkName: "Landing" */ '../../pages/Landing/Landing'));
-// const About = lazy(() => import(/* webpackChunkName: "About" */ '../../pages/About/About'));
+const About = lazy(() => import(/* webpackChunkName: "About" */ '../../pages/About/About'));
 const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
 // const getFields = (collection, id) => {
@@ -39,11 +39,16 @@ const Pages = ({ location, ...props }) => {
                     />
                   )}
                 />
-                {/* <Route
+                <Route
                   exact
                   path={routeKeys.About}
-                  render={() => <About pageData={props.siteData.about[0]} transitionState={state} />}
-                /> */}
+                  render={() => (
+                    <About
+                      pageData={props.siteData.hasOwnProperty('about') ? props.siteData.about : props.siteData}
+                      transitionState={state}
+                    />
+                  )}
+                />
                 <Route render={() => <NotFound />} />
               </Switch>
             </Suspense>

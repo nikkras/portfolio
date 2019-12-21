@@ -37,6 +37,7 @@ class Preloader extends React.PureComponent {
       const fetchedData = {};
       axios.get(`${settings.strapi}pages`).then(
         res => {
+          fetchedData.about = res.data[0];
           fetchedData.landing = res.data[1];
           if (fetchedData.landing.acf.image) {
             const loader = new TextureLoader();

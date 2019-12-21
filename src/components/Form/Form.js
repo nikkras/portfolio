@@ -31,11 +31,19 @@ export default class MyForm extends PureComponent {
   render() {
     const { status } = this.state;
     return (
-      <form onSubmit={this.submitForm} action="https://formspree.io/xjvgbjey" method="POST">
+      <form
+        onSubmit={this.submitForm}
+        action="https://admin.nikkras.com/wp-json/contact-form-7/v1/contact-forms/19/feedback"
+        method="POST"
+      >
+        <label>Name:</label>
+        <input type="text" name="your-name" />
         <label>Email:</label>
-        <input type="email" name="email" />
+        <input type="email" name="your-email" />
+        <label>Subject:</label>
+        <input type="text" name=" your-subject" />
         <label>Message:</label>
-        <input type="text" name="message" />
+        <textarea type="text" name="your-message" />
         {status === 'SUCCESS' ? <p>Thanks!</p> : <button>Submit</button>}
         {status === 'ERROR' && <p>Ooops! There was an error.</p>}
       </form>

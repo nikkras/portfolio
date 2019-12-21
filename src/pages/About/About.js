@@ -5,10 +5,11 @@ import LocomotiveScroll from 'locomotive-scroll';
 import classnames from 'classnames';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
+import axios from 'axios';
 
 import './About.scss';
 
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
 import Transition from '../PagesTransitionWrapper';
 // import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
 import animate from '../../util/gsap-animate';
@@ -24,11 +25,20 @@ class About extends React.PureComponent {
 
   componentDidMount() {
     animate.set(this.container, { autoAlpha: 0 });
+    this.content.innerHTML = this.props.pageData.content.rendered;
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('#root'),
-      smooth: true,
-      inertia: 0.6
+      smooth: true
     });
+
+    // const contactForm = {};
+    // axios.get(`https://admin.nikkras.com/wp-json/contact-form-7/v1/contact-forms/19`).then(
+    //   res => {
+    //     console.log(res);
+    //     // contactForm.form = res.data[0];
+    //   },
+    //   err => {}
+    // );
   }
 
   onAppear = () => {
@@ -59,12 +69,10 @@ class About extends React.PureComponent {
   render() {
     return (
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
-        {console.log(this.props.pageData)}
-        <h1>{this.props.pageData.name}</h1>
-        <div className="content">
-          <ReactMarkdown source={this.props.pageData.content} />
-          <Form />
-        </div>
+        <h1>{this.props.pageData.title.rendered}</h1>
+        <div className="content" ref={r => (this.content = r)} />
+        <img src={this.props.pageData.acf.image.url} alt="" />
+        <Form />
       </section>
     );
   }
