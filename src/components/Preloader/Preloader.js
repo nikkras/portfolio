@@ -35,7 +35,7 @@ class Preloader extends React.PureComponent {
   setData() {
     return new Promise((resolve, reject) => {
       const fetchedData = {};
-      axios.get(`${settings.strapi}homecontents`).then(
+      axios.get(`${settings.strapi}pages`).then(
         res => {
           fetchedData.landing = res.data[0];
           if (fetchedData.landing.image) {
