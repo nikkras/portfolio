@@ -1,7 +1,7 @@
 const settings = {};
 
-// strapi url data
-settings.strapi = `${process.env.REACT_APP_STRAPI_URL}`;
+// cms url data
+settings.cms = `${process.env.REACT_APP_CMS_URL}`;
 
 // global
 settings.resizeDebounceTime = 10; // in ms
