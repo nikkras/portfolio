@@ -13,6 +13,7 @@ import LandingBg from '../../components/LandingBg/LandingBg';
 // import { ReactComponent as HandIcon } from '../../../src/assets/svg/waving-hand.svg';
 
 import './Landing.scss';
+import 'locomotive-scroll/src/locomotive-scroll.scss';
 
 import Transition from '../PagesTransitionWrapper';
 import { setLandingLoaded } from '../../redux/modules/landing';
