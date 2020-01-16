@@ -2,8 +2,13 @@
 
 // IE 11
 import 'react-app-polyfill/ie11';
-import 'ie-array-find-polyfill';
-import 'polyfill-array-includes';
+import 'mdn-polyfills/Array.prototype.includes';
+import 'mdn-polyfills/Array.prototype.find';
+import 'mdn-polyfills/Object.entries';
+// import 'mdn-polyfills/Object.assign';
+// import 'mdn-polyfills/Node.prototype.append';
+// import 'mdn-polyfills/NodeList.prototype.forEach';
+import 'smoothscroll-polyfill';
 
 // IE 10
 import 'core-js/es/map';

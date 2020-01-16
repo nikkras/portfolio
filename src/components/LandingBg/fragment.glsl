@@ -102,7 +102,7 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
   vec3 sh=pow(vec3(clamp(dot(nr,l),0.,1.)),vec3(5.));
   
   vec4 final=contrast(vec4(.9*ib+.6*sh,1.));
-  final.rgb=blendOverlay(final.rgb,vec3(.5+rand(uv+iTime)*.3));
+  final.rgb=blendOverlay(final.rgb,vec3(.5+rand(uv+iTime)*.05));
   // final.rgb=blendOverlay(final.rgb,pow(vec3(0.0235, 0.1647, 0.6275)*uv.y,vec3(2.)));
   
   // final.r/=abs(cos(iTime/22.)*.98);

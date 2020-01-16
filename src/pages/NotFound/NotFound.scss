@@ -1,9 +1,13 @@
 @import 'src/style/shared.scss';
 
 .NotFound {
-  text-align: center;
+  padding: var(--space-lg);
 
-  svg {
-    width: px-to-rem(200);
+  h3 {
+    color: $white;
   }
+
+  // svg {
+  //   width: px-to-rem(200);
+  // }
 }

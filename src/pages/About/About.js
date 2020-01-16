@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import LocomotiveScroll from 'locomotive-scroll';
 import classnames from 'classnames';
+import debounce from 'lodash.debounce';
+import { device } from '@jam3/detect';
 import wait from '@jam3/wait';
 import checkProps from '@jam3/react-check-extra-props';
-import axios from 'axios';
+import classes from 'dom-classes';
+import select from 'dom-select';
+import Smooth from '../../lib/smooth/smooth';
 
 import './About.scss';
+import 'smooth-scrolling/demos/main.css';
 
 // import ReactMarkdown from 'react-markdown';
 import Transition from '../PagesTransitionWrapper';
@@ -15,30 +19,22 @@ import Transition from '../PagesTransitionWrapper';
 import animate from '../../util/gsap-animate';
 // import routeKeys from '../../routes/keys';
 
-import Form from '../../components/Form/Form';
-
 class About extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
+    this.initSmoothScrollDebounced = debounce(this.initSmoothScroll, 300);
   }
 
   componentDidMount() {
-    animate.set(this.container, { autoAlpha: 0 });
-    this.content.innerHTML = this.props.pageData.content.rendered;
-    this.scroll = new LocomotiveScroll({
-      el: document.querySelector('#root'),
-      smooth: true
-    });
-
-    // const contactForm = {};
-    // axios.get(`https://admin.nikkras.com/wp-json/contact-form-7/v1/contact-forms/19`).then(
-    //   res => {
-    //     console.log(res);
-    //     // contactForm.form = res.data[0];
-    //   },
-    //   err => {}
-    // );
+    this.footer = select('footer.Footer');
+    this.main = select('main');
+    this.body = select('body');
+    this.header = select('header.MainTopNav');
+    animate.set(this.main, { clearProps: 'all' });
+    if (!device.isMobile) {
+      this.initSmoothScrollDebounced();
+    }
   }
 
   onAppear = () => {
@@ -47,6 +43,7 @@ class About extends React.PureComponent {
 
   onEnter = async prevSectionExitDuration => {
     await wait(prevSectionExitDuration); // you need to remove this if you want to perform simultaneous transition
+    classes.remove(this.body, 'changePage');
     this.animateIn();
   };
 
@@ -55,24 +52,58 @@ class About extends React.PureComponent {
   };
 
   animateIn = () => {
-    animate.to(this.container, 0.3, { autoAlpha: 1 });
+    animate.to(this.logo, 0.8, { autoAlpha: 1, delay: 0.7 });
+    animate.to(this.header, 0.8, { autoAlpha: 1, delay: 0.5 });
+    animate.to(this.footer, 0.8, { autoAlpha: 1, delay: 0.5 });
+    animate.to(this.container, 0.8, { autoAlpha: 1, delay: 0.4 });
   };
 
   animateOut = () => {
     // Note that the total duration should match `exit` duration for the page inside `data/pages-transitions`
-    animate.to(this.container, 0.3, { autoAlpha: 0 });
+    classes.add(this.body, 'changePage');
+    animate.to(this.logo, 0.3, { autoAlpha: 0 });
+    animate.to(this.header, 0.3, { autoAlpha: 0 });
+    animate.to(this.footer, 0.3, { autoAlpha: 0 });
+    animate.to(this.container, 0.3, { autoAlpha: 0 }).then(() => {
+      if (typeof this.scroll !== 'undefined') {
+        this.destroySmoothScroll();
+      }
+    });
+  };
+
+  initSmoothScroll = () => {
+    const divs = this.domSmooth.filter(el => {
+      return el != null;
+    });
+    this.scroll = new Smooth({
+      section: this.main,
+      divs: divs,
+      footer: this.footer,
+      preload: true,
+      vs: {
+        mouseMultiplier: 0.4,
+        touchMultiplier: 2,
+        firefoxMultiplier: 50
+      }
+      // cb: this.scrollEvents ? this.scrollEvents : null,
+    });
+    this.scroll.init();
+  };
+
+  destroySmoothScroll = () => {
+    this.main.style.transform = null;
+    this.domSmooth = [];
     this.scroll.destroy();
   };
 
-  handleSubmit = () => {};
-
   render() {
+    this.domSmooth = [];
+    // const props = this.props;
     return (
       <section className={classnames('About', this.props.className)} ref={el => (this.container = el)}>
-        <h1>{this.props.pageData.title.rendered}</h1>
-        <div className="content" ref={r => (this.content = r)} />
-        <img src={this.props.pageData.acf.image.url} alt="" />
-        <Form />
+        <h1 ref={el => this.domSmooth.push(el)}>{this.props.pageData.title.rendered}</h1>
+        <div className="content" ref={el => this.domSmooth.push(el)} />
+        <img src={this.props.pageData.acf.image.url} ref={el => this.domSmooth.push(el)} alt="" />
       </section>
     );
   }

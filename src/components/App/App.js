@@ -8,6 +8,7 @@ import { Footer, HamburgerMenu, MainTopNav, PageOverlay } from '@jam3/react-ui';
 import { device } from '@jam3/detect';
 import checkProps from '@jam3/react-check-extra-props';
 import 'default-passive-events';
+import CookieConsent from 'react-cookie-consent';
 
 import Pages from '../../components/Pages/Pages';
 import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
@@ -23,6 +24,7 @@ import rotateScreenData from '../../data/rotate-screen';
 import layout from '../../util/layout';
 import lockBodyScroll from '../../util/lock-body-scroll';
 import preloadAssets from '../../data/preload-assets';
+import sanitizer from '../../util/sanitizer';
 
 const LazyRotateScreen =
   device.isMobile &&
@@ -104,6 +106,9 @@ class App extends React.PureComponent {
             </Transition>
           )}
         </Suspense>
+        <CookieConsent disableStyles={true} buttonText={'Acconsento'}>
+          {sanitizer("Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.")}
+        </CookieConsent>
       </Fragment>
     );
   }

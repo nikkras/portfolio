@@ -1,8 +1,17 @@
 @import 'src/style/shared.scss';
 
 .About {
+  background-color: $black;
   color: var(--main-white);
-  margin-top: var(--space-xxl);
+  padding: var(--space-xxxl) var(--space-lg) var(--space-xl);
+
+  @include media('>=medium') {
+    padding: var(--space-xxxl) var(--space-xl) var(--space-xl);
+  }
+  @include media('>=large') {
+    padding: var(--space-xxl) var(--space-xxl) var(--space-xxl);
+  }
+
   img {
     width: 100%;
     max-width: 100%;

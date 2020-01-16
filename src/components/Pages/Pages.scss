@@ -3,15 +3,17 @@
 .Pages {
   position: relative;
   text-align: center;
-  // margin-top: $navbar-height-mobile;
-  flex: 1;
+  @include z-index(pages);
+  // flex: 1;
 
-  @media (min-width: $layout-large) {
-    // margin-top: $navbar-height-desktop;
-  }
+  // @include media('>=medium') {
+  // }
+  // @include media('>=large') {
+  // }
 
   & > section {
-    padding-bottom: px-to-rem(40);
+    // padding-bottom: px-to-rem(40);
     width: 100%;
+    opacity: 0;
   }
 }

@@ -4,8 +4,8 @@
   position: relative;
   text-align: left;
   // padding: px-to-rem(20) $navbar-padding-mobile;
-  padding: var(--space-xxxl) var(--space-lg) var(--space-xl);
   color: var(--main-white);
+  padding: var(--space-xxxl) var(--space-lg) var(--space-xl);
 
   @include media('>=medium') {
     padding: var(--space-xxxl) var(--space-xl) var(--space-xl);

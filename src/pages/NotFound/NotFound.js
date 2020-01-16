@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import checkProps from '@jam3/react-check-extra-props';
+import sanitizer from '../../util/sanitizer';
 
 import './NotFound.scss';
 
-import { ReactComponent as NotFoundIcon } from '../../assets/svg/not-found-icon.svg';
+// import { ReactComponent as NotFoundIcon } from '../../assets/svg/not-found-icon.svg';
 
 const NotFound = props => {
   const componentProps = {
@@ -14,8 +15,8 @@ const NotFound = props => {
 
   return (
     <div {...componentProps}>
-      <NotFoundIcon />
-      <h1>Not Found</h1>
+      {/* <NotFoundIcon /> */}
+      <h3>{sanitizer('Oops! Nothing found')}</h3>
     </div>
   );
 };
