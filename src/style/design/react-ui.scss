@@ -15,7 +15,7 @@
     @include z-index(main-nav);
     padding: 2rem $navbar-padding-mobile;
     height: $navbar-height-mobile;
-    background-color: transparent;
+    background-color: rgba($black, 0);
 
     @include media('>=medium') {
       padding: var(--space-md) var(--space-md);
