@@ -1,14 +1,9 @@
 {
   "default": {
     "title": "Nikita K",
-    "description": "Nikita Krassiouk Portfolio",
-    "keywords": "web App,React,Nikita Krassiouk,portfolio",
-    "og:image": "https://jam3.com/static/media/share.jpg",
-    "og:url": "https://generator.jam3.net",
-    "og:site_name": "Nikita K",
-    "twitter:image": "https://jam3.com/static/media/share.jpg",
-    "twitter:site": "@jam3",
-    "twitter:creator": "@jam3"
+    "description": "Nikita Krassiouk Portfolio - Web Developer",
+    "keywords": "Nikita Krassiouk portfolio web developer freelance fronted webgl react websites",
+    "og:site_name": "Nikita Krassiouk"
   },
   "route/subroute": {
     "title": "",
