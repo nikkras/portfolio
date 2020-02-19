@@ -5,6 +5,9 @@ import * as THREE from 'three';
 import fragmentShader from './fragment.glsl';
 import vertexShader from './vertex.glsl';
 import buffer from './buffer.glsl';
+
+import math from '../../util/math';
+
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // import animate from '../../util/gsap-animate';
@@ -42,6 +45,8 @@ export default class LandingBg extends PureComponent {
     this.scene = new THREE.Scene();
 
     this.mousePosition = new THREE.Vector3();
+
+    this.viewSize = this.getViewSize();
 
     // this.controls = new OrbitControls(this.camera, this.el);
     this.el.appendChild(this.renderer.domElement); // mount using React ref
@@ -97,6 +102,10 @@ export default class LandingBg extends PureComponent {
 
     // console.log(`${x}-${y}`);
     // this.mousePosition.unproject(this.camera);
+
+    const x = math.map(this.mousePosition.x, -1, 1, -this.viewSize.width / 2, this.viewSize.width / 2);
+    const y = math.map(this.mousePosition.y, -1, 1, -this.viewSize.height / 2, this.viewSize.height / 2);
+
     this.mousePosition.setX(e.clientX);
     this.mousePosition.setY(this.el.clientHeight - e.clientY);
     this.mousePosition.unproject(this.camera);
@@ -191,6 +200,16 @@ export default class LandingBg extends PureComponent {
     this.rbScene.add(this.rbPlaneMesh);
   };
 
+  getViewSize = () => {
+    // https://gist.github.com/ayamflow/96a1f554c3f88eef2f9d0024fc42940f
+    // https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html
+    let distance = this.camera.position.z;
+    let vFov = (this.camera.fov * Math.PI) / 180;
+    let height = 2 * Math.tan(vFov / 2) * distance;
+    let width = height * this.camera.aspect;
+    return { width, height, vFov };
+  };
+
   resizeRendererToDisplaySize = renderer => {
     const canvas = renderer.domElement;
     // const pixelRatio = window.devicePixelRatio;
@@ -209,6 +228,9 @@ export default class LandingBg extends PureComponent {
     time *= 0.001;
     if (this.resizeRendererToDisplaySize(this.renderer)) {
       const canvas = this.renderer.domElement;
+
+      this.viewSize = this.getViewSize();
+
       this.rbCamera.aspect = canvas.clientWidth / canvas.clientHeight;
       this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
