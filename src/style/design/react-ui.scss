@@ -62,7 +62,7 @@
     opacity: 0;
     @include z-index(foter);
     padding: 2rem $navbar-padding-mobile;
-    display: flex;
+    display: none;
     position: relative;
     flex-direction: column;
     align-items: center;

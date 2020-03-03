@@ -9,7 +9,7 @@ class Custom extends Smooth {
     this.cache = null;
     this.dom.divs = opt.divs;
     // this.cb = opt.cb.bind(this) || null;
-    this.footer = opt.footer;
+    this.footer = opt.footer || null;
   }
 
   createExtraBound() {
@@ -40,10 +40,7 @@ class Custom extends Smooth {
       };
       this.cache.push(bounds);
     });
-    this.vars.bounding =
-      this.dom.section.getBoundingClientRect().height +
-      this.footer.getBoundingClientRect().height -
-      (this.vars.native ? 0 : this.vars.height);
+    this.vars.bounding = this.dom.section.getBoundingClientRect().height - (this.vars.native ? 0 : this.vars.height);
   }
 
   run() {

@@ -103,12 +103,12 @@ export default class LandingBg extends PureComponent {
     // console.log(`${x}-${y}`);
     // this.mousePosition.unproject(this.camera);
 
-    const x = math.map(this.mousePosition.x, -1, 1, -this.viewSize.width / 2, this.viewSize.width / 2);
-    const y = math.map(this.mousePosition.y, -1, 1, -this.viewSize.height / 2, this.viewSize.height / 2);
+    // const x = math.map(this.mousePosition.x, -1, 1, -this.viewSize.width / 2, this.viewSize.width / 2);
+    // const y = math.map(this.mousePosition.y, -1, 1, -this.viewSize.height / 2, this.viewSize.height / 2);
 
     this.mousePosition.setX(e.clientX);
     this.mousePosition.setY(this.el.clientHeight - e.clientY);
-    this.mousePosition.unproject(this.camera);
+    // this.mousePosition.unproject(this.camera);
 
     // console.log(`${e.clientX}-${this.el.clientHeight - e.clientY}`);
   };
@@ -229,7 +229,7 @@ export default class LandingBg extends PureComponent {
     if (this.resizeRendererToDisplaySize(this.renderer)) {
       const canvas = this.renderer.domElement;
 
-      this.viewSize = this.getViewSize();
+      // this.viewSize = this.getViewSize();
 
       this.rbCamera.aspect = canvas.clientWidth / canvas.clientHeight;
       this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -268,6 +268,6 @@ export default class LandingBg extends PureComponent {
   };
 
   render() {
-    return <div className="Landing__bg" ref={ref => (this.el = ref)} />;
+    return <div className="Landing__bg__content" ref={ref => (this.el = ref)} />;
   }
 }

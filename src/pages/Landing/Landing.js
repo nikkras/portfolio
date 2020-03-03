@@ -85,7 +85,7 @@ class Landing extends React.PureComponent {
     this.scroll = new Smooth({
       section: this.main,
       divs: divs,
-      footer: this.footer,
+      // footer: this.footer,
       preload: true,
       vs: {
         mouseMultiplier: 0.4,
@@ -108,7 +108,9 @@ class Landing extends React.PureComponent {
     // const props = this.props;
     return (
       <section className={classnames('Landing', this.props.className)} ref={el => (this.container = el)}>
-        <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg : null} />
+        <div className="Landing__bg" ref={el => this.domSmooth.push(el)} data-scroll-speed="-8">
+          <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg : null} />
+        </div>
         <header className="Landing__header">
           <h1 ref={el => this.domSmooth.push(el)} data-scroll-speed="0.1" className="Landing__header__title">
             {sanitazer('Nikita Krassiouk')}
