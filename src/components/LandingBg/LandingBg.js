@@ -6,7 +6,7 @@ import fragmentShader from './fragment.glsl';
 import vertexShader from './vertex.glsl';
 import buffer from './buffer.glsl';
 
-import math from '../../util/math';
+// import math from '../../util/math';
 
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -140,6 +140,7 @@ export default class LandingBg extends PureComponent {
     const loader = new THREE.TextureLoader();
     const localBg = './assets/images/landingBg.jpg';
     // this.texture = loader.load('https://source.unsplash.com/collection/151521/1600x900');
+    // https://source.unsplash.com/kE0mU-yy31Y/1600x900
     this.texture = this.props.imageBg ? this.props.imageBg : loader.load(localBg);
     // loader.setCrossOrigin('');
 
