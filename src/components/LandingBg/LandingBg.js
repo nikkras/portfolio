@@ -18,10 +18,6 @@ import buffer from './buffer.glsl';
 // import { BaseLink } from '@jam3/react-ui';
 
 export default class LandingBg extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.addTexture();
     this.sceneSetup();
