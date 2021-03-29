@@ -96,7 +96,7 @@
     "redux": "4.0.1",
     "smooth-scrolling": "^2.3.12",
     "smoothscroll-polyfill": "^0.4.4",
-    "three": "^0.111.0"
+    "three": "^0.125.0"
   },
   "devDependencies": {
     "@commitlint/cli": "6.2.0",
