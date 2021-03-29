@@ -1,14 +1,11 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import debounce from 'lodash.debounce';
-import { Transition } from 'react-transition-group';
-import { Footer, HamburgerMenu, MainTopNav, PageOverlay } from '@jam3/react-ui';
-import { device } from '@jam3/detect';
+import { Footer, MainTopNav } from '@jam3/react-ui';
 import checkProps from '@jam3/react-check-extra-props';
 import 'default-passive-events';
-import CookieConsent from 'react-cookie-consent';
 
 import Pages from '../../components/Pages/Pages';
 import PrefetchLink from '../../components/PrefetchLink/PrefetchLink';
@@ -18,23 +15,9 @@ import { setIsMobileMenuOpen } from '../../redux/modules/main-nav';
 
 import settings from '../../data/settings';
 import mainNavData from '../../data/main-nav';
-import hamburgerNavData from '../../data/hamburger-menu';
 import footerData from '../../data/footer';
-import rotateScreenData from '../../data/rotate-screen';
 import layout from '../../util/layout';
 import lockBodyScroll from '../../util/lock-body-scroll';
-import preloadAssets from '../../data/preload-assets';
-import sanitizer from '../../util/sanitizer';
-
-const LazyRotateScreen =
-  device.isMobile &&
-  lazy(() =>
-    import('@jam3/react-ui').then(module => {
-      return { ...module, default: module.RotateScreen };
-    })
-  );
-
-const LazyPreloader = lazy(() => import('../../components/Preloader/Preloader'));
 
 class App extends React.PureComponent {
   componentDidMount() {
@@ -70,45 +53,16 @@ class App extends React.PureComponent {
   render() {
     return (
       <Fragment>
-        {this.props.ready && (
-          <Fragment>
-            <MainTopNav
-              {...mainNavData}
-              // showHamburger={!this.props.layout.large}
-              showHamburger={false}
-              isMobileMenuOpen={this.props.isMobileMenuOpen}
-              setIsMobileMenuOpen={this.props.setIsMobileMenuOpen}
-              linkComponent={PrefetchLink}
-            />
-            {!this.props.layout.large && (
-              <Fragment>
-                <PageOverlay
-                  isShowing={this.props.isMobileMenuOpen}
-                  onClick={() => this.props.setIsMobileMenuOpen(false)}
-                />
-                <HamburgerMenu
-                  {...hamburgerNavData}
-                  isMobileMenuOpen={this.props.isMobileMenuOpen}
-                  setIsMobileMenuOpen={this.props.setIsMobileMenuOpen}
-                  linkComponent={PrefetchLink}
-                />
-              </Fragment>
-            )}
-            <Pages siteData={this.props.siteData} />
-            <Footer {...footerData} linkComponent={PrefetchLink} />
-          </Fragment>
-        )}
-        <Suspense fallback={<div className="loading" />}>
-          {device.isMobile && <LazyRotateScreen {...rotateScreenData} />}
-          {Boolean(preloadAssets.length) && (
-            <Transition in={!this.props.ready} timeout={0}>
-              {state => state !== 'exited' && <LazyPreloader transitionState={state} />}
-            </Transition>
-          )}
-        </Suspense>
-        <CookieConsent disableStyles={true} buttonText={'Acconsento'}>
-          {sanitizer("Questo sito utilizza i cookie per migliorare l'esperienza dell'utente.")}
-        </CookieConsent>
+        <MainTopNav
+          {...mainNavData}
+          // showHamburger={!this.props.layout.large}
+          showHamburger={false}
+          isMobileMenuOpen={this.props.isMobileMenuOpen}
+          setIsMobileMenuOpen={this.props.setIsMobileMenuOpen}
+          linkComponent={PrefetchLink}
+        />
+        <Pages />
+        <Footer {...footerData} linkComponent={PrefetchLink} />
       </Fragment>
     );
   }
@@ -117,8 +71,6 @@ class App extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     layout: state.layout,
-    siteData: state.siteData,
-    ready: preloadAssets.length ? state.preloader.ready : true,
     isMobileMenuOpen: state.isMobileMenuOpen
   };
 };
@@ -133,12 +85,10 @@ const mapDispatchToProps = dispatch => {
 
 App.propTypes = checkProps({
   layout: PropTypes.object.isRequired,
-  ready: PropTypes.bool.isRequired,
   setPreviousRoute: PropTypes.func.isRequired,
   isMobileMenuOpen: PropTypes.bool.isRequired,
   setIsMobileMenuOpen: PropTypes.func.isRequired,
-  setLayout: PropTypes.func.isRequired,
-  siteData: PropTypes.object.isRequired
+  setLayout: PropTypes.func.isRequired
 });
 
 App.defaultProps = {};

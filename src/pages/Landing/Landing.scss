@@ -62,6 +62,7 @@
 .Landing__header__mailLink {
   font-size: var(--text-xs);
   transition: letter-spacing 0.6s ease;
+  text-decoration: none;
   &:hover {
     letter-spacing: 0.04em;
   }
@@ -92,6 +93,11 @@
     margin-bottom: var(--space-sm);
     text-decoration: none;
     // font-weight: 600;
+    span {
+      text-transform: uppercase;
+      font-size: var(--text-xxs);
+      letter-spacing: 0.08em;
+    }
     @include media('>=medium') {
       letter-spacing: 0em;
       font-size: var(--text-lg);

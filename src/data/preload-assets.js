@@ -1,5 +1,5 @@
 import { device } from '@jam3/detect';
-const ASSETS_PATH = './assets/';
+// const ASSETS_PATH = './assets/';
 
 /**
  * Manipulate preload assets list here
@@ -9,7 +9,7 @@ const ASSETS_PATH = './assets/';
  * @const {array} TABLET_ASSETS (Keep an assets list for tablet)
  * @const {array} DESKTOP_ASSETS (Keep an assets list for desktop)
  */
-const GLOBAL_ASSETS = [`${ASSETS_PATH}images/landingBg.png`];
+const GLOBAL_ASSETS = [];
 const MOBILE_ASSETS = [];
 const TABLET_ASSETS = [];
 const DESKTOP_ASSETS = [];

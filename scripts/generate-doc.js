@@ -20,13 +20,3 @@ sassdoc('./src/style', { verbose: true, dest: './public/styleguide' }).then(
   }
 );
 
-// Generate Storybook static page, components show off
-console.log(`${title} Storybook docs`);
-exec('build-storybook -c .storybook -o public/components', function(err, stdout, stderr) {
-  if (err) {
-    console.log(`${chalk.red('Failed!')}, Storybook components documentation failed`);
-    console.error(err);
-  }
-
-  console.log(`${chalk.green('Ok!')}, Storybook components documentation has been generated`);
-});

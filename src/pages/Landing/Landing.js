@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 import debounce from 'lodash.debounce';
 import { device } from '@jam3/detect';
 import { BaseLink } from '@jam3/react-ui';
@@ -107,9 +106,9 @@ class Landing extends React.PureComponent {
     this.domSmooth = [];
     // const props = this.props;
     return (
-      <section className={classnames('Landing', this.props.className)} ref={el => (this.container = el)}>
+      <section className="Landing" ref={el => (this.container = el)}>
         <div className="Landing__bg" ref={el => this.domSmooth.push(el)} data-scroll-speed="-8">
-          <LandingBg imageBg={this.props.pageData.imageBg ? this.props.pageData.imageBg : null} />
+          <LandingBg />
         </div>
         <header className="Landing__header">
           <h1 ref={el => this.domSmooth.push(el)} data-scroll-speed="0.1" className="Landing__header__title">
@@ -122,26 +121,114 @@ class Landing extends React.PureComponent {
             className="Landing__header__mailLink"
             target="blank"
           >
-            {this.props.pageData.acf.intro ? sanitazer(this.props.pageData.acf.intro) : null}
+            Say hello & let's keep in touch{' '}
+            <span role="img" aria-label="victory hand">
+              ✌️
+            </span>
           </BaseLink>
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
-            {this.props.pageData.acf.works
-              ? this.props.pageData.acf.works.map((el, i) => {
-                  return (
-                    <BaseLink
-                      key={el.name}
-                      ref={el => this.domSmooth.push(el)}
-                      data-scroll-speed="0.8"
-                      link={el.link}
-                      target="blank"
-                    >
-                      {sanitazer(el.name)}
-                    </BaseLink>
-                  );
-                })
-              : null}
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="http://paolettiguitars.com/"
+              target="blank"
+            >
+              Paoletti Guitars
+              <br />
+              <span>2021</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://passionfruit.win/"
+              target="blank"
+            >
+              Passion Fruit
+              <br />
+              <span>2020</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://centralemontecatini.it/"
+              target="blank"
+            >
+              Centrale
+              <br />
+              <span>2020</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="http://manovietoscane.it/"
+              target="blank"
+            >
+              Manovie Toscane
+              <br />
+              <span>Coming Soon</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.arredamentimacchini.com/"
+              target="blank"
+            >
+              Arredamenti Macchini
+              <br />
+              <span>Coming Soon</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://biondibistrot.it/"
+              target="blank"
+            >
+              Biondi Bistrot
+              <br />
+              <span>2020</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://delave.it/"
+              target="blank"
+            >
+              Delavè
+              <br />
+              <span>2018</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://jueclub.it/"
+              target="blank"
+            >
+              Juè Club
+              <br />
+              <span>2020</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="http://brunoeluca.it/"
+              target="blank"
+            >
+              Bruno e Luca
+              <br />
+              <span>2017</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.eco2000srl.it/"
+              target="blank"
+            >
+              Eco 2000
+              <br />
+              <span>2020</span>
+            </BaseLink>
           </div>
         </section>
       </section>

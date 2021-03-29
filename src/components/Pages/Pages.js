@@ -29,22 +29,12 @@ const Pages = ({ location, ...props }) => {
           {state => (
             <Suspense fallback={<div className="loading" />}>
               <Switch location={location}>
-                <Route
-                  exact
-                  path={routeKeys.Landing}
-                  render={() => (
-                    <Landing
-                      pageData={props.siteData.hasOwnProperty('landing') ? props.siteData.landing : props.siteData}
-                      transitionState={state}
-                    />
-                  )}
-                />
+                <Route exact path={routeKeys.Landing} render={() => <Landing transitionState={state} />} />
                 {/* <Route
                   exact
                   path={routeKeys.About}
                   render={() => (
                     <About
-                      pageData={props.siteData.hasOwnProperty('about') ? props.siteData.about : props.siteData}
                       transitionState={state}
                     />
                   )}
