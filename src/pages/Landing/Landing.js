@@ -121,9 +121,13 @@ class Landing extends React.PureComponent {
             className="Landing__header__mailLink"
             target="blank"
           >
-            Say hello & let's keep in touch{' '}
-            <span role="img" aria-label="victory hand">
-              ✌️
+            Feel free to say Hello{' '}
+            <span role="img" aria-label="backhand index pointing right">
+              👉
+            </span>{' '}
+            info@nikkras.com{' '}
+            <span role="img" aria-label="ok hand">
+              👌
             </span>
           </BaseLink>
         </header>
