@@ -115,7 +115,7 @@ class Landing extends React.PureComponent {
             {sanitazer('Nikita Krassiouk')}
           </h1>
           <BaseLink
-            link="mailto:info@nikita-krassiouk.me"
+            link="mailto:info@nikkras.com"
             data-scroll
             data-scroll-speed="0.8"
             className="Landing__header__mailLink"
