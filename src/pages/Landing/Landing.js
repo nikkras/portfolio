@@ -156,6 +156,16 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
+              link="https://www.arredamentimacchini.com/"
+              target="blank"
+            >
+              Arredamenti Macchini
+              <br />
+              <span>2021</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
               link="https://passionfruit.win/"
               target="blank"
             >
@@ -172,16 +182,6 @@ class Landing extends React.PureComponent {
               Centrale
               <br />
               <span>2020</span>
-            </BaseLink>
-            <BaseLink
-              ref={el => this.domSmooth.push(el)}
-              data-scroll-speed="0.8"
-              link="https://www.arredamentimacchini.com/"
-              target="blank"
-            >
-              Arredamenti Macchini
-              <br />
-              <span>Coming Soon</span>
             </BaseLink>
             <BaseLink
               ref={el => this.domSmooth.push(el)}
