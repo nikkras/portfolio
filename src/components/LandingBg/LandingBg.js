@@ -134,11 +134,13 @@ export default class LandingBg extends PureComponent {
       y: 900
     };
     const loader = new THREE.TextureLoader();
-    const localBg = './assets/images/landingBg.jpg';
-    // this.texture = loader.load('https://source.unsplash.com/collection/151521/1600x900');
+    // const localBg = './assets/images/landingBg.jpg';
+    // this.texture = loader.load(localBg);
+
+    this.texture = loader.load('https://source.unsplash.com/vI5XwPbGvmY/1600x900');
     // https://source.unsplash.com/kE0mU-yy31Y/1600x900
+    // https://source.unsplash.com/collection/151521/1600x900
     // this.texture = this.props.imageBg ? this.props.imageBg : loader.load(localBg);
-    this.texture = loader.load(localBg);
     // loader.setCrossOrigin('');
 
     this.texture.minFilter = THREE.NearestFilter;
