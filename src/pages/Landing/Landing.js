@@ -119,7 +119,7 @@ class Landing extends React.PureComponent {
             data-scroll
             data-scroll-speed="0.8"
             className="Landing__header__mailLink"
-            target="blank"
+            target="_blank"
           >
             Feel free to say Hello{' '}
             <span role="img" aria-label="backhand index pointing right">
@@ -137,7 +137,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="http://paolettiguitars.com/"
-              target="blank"
+              target="_blank"
             >
               Paoletti Guitars
               <br />
@@ -147,7 +147,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="http://manovietoscane.it/"
-              target="blank"
+              target="_blank"
             >
               Manovie Toscane
               <br />
@@ -157,7 +157,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.arredamentimacchini.com/"
-              target="blank"
+              target="_blank"
             >
               Arredamenti Macchini
               <br />
@@ -167,7 +167,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://passionfruit.win/"
-              target="blank"
+              target="_blank"
             >
               Passion Fruit
               <br />
@@ -177,7 +177,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://centralemontecatini.it/"
-              target="blank"
+              target="_blank"
             >
               Centrale
               <br />
@@ -187,7 +187,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://biondibistrot.it/"
-              target="blank"
+              target="_blank"
             >
               Biondi Bistrot
               <br />
@@ -197,7 +197,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://delave.it/"
-              target="blank"
+              target="_blank"
             >
               Delavè
               <br />
@@ -207,7 +207,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://jueclub.it/"
-              target="blank"
+              target="_blank"
             >
               Juè Club
               <br />
@@ -217,7 +217,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.edilmema.it/"
-              target="blank"
+              target="_blank"
             >
               Edilmema
               <br />
@@ -226,8 +226,18 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
+              link="https://insegno.eu/"
+              target="_blank"
+            >
+              Insegno
+              <br />
+              <span>2021</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
               link="http://brunoeluca.it/"
-              target="blank"
+              target="_blank"
             >
               Bruno e Luca
               <br />
@@ -237,7 +247,7 @@ class Landing extends React.PureComponent {
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.eco2000srl.it/"
-              target="blank"
+              target="_blank"
             >
               Eco 2000
               <br />
