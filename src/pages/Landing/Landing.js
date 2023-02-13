@@ -133,6 +133,26 @@ class Landing extends React.PureComponent {
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
+             <BaseLink
+              ref={(el) => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://marcopolo.paolettiguitars.com/"
+              target="_blank"
+            >
+              Marco Polo - Paoletti Guitars
+              <br />
+              <span>2022</span>
+            </BaseLink>
+             <BaseLink
+              ref={(el) => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.fadpro.it/"
+              target="_blank"
+            >
+              Fadpro
+              <br />
+              <span>2022</span>
+            </BaseLink>
             <BaseLink
               ref={(el) => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
