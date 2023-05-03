@@ -156,7 +156,7 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={(el) => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
-              link="https://ioleliquore.com/"
+              link="https://ioleliquore-two.vercel.app/"
               target="_blank"
             >
               i.o.l.e.
