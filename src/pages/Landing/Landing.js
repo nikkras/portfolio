@@ -47,7 +47,7 @@ class Landing extends React.PureComponent {
     this.animateIn();
   };
 
-  onEnter = async (prevSectionExitDuration) => {
+  onEnter = async prevSectionExitDuration => {
     await wait(prevSectionExitDuration); // you need to remove this if you want to perform simultaneous transition
     classes.remove(this.body, 'changePage');
     this.animateIn();
@@ -78,7 +78,7 @@ class Landing extends React.PureComponent {
   };
 
   initSmoothScroll = () => {
-    const divs = this.domSmooth.filter((el) => {
+    const divs = this.domSmooth.filter(el => {
       return el != null;
     });
     this.scroll = new Smooth({
@@ -89,8 +89,8 @@ class Landing extends React.PureComponent {
       vs: {
         mouseMultiplier: 0.4,
         touchMultiplier: 2,
-        firefoxMultiplier: 50,
-      },
+        firefoxMultiplier: 50
+      }
       // cb: this.scrollEvents ? this.scrollEvents : null,
     });
     this.scroll.init();
@@ -106,12 +106,12 @@ class Landing extends React.PureComponent {
     this.domSmooth = [];
     // const props = this.props;
     return (
-      <section className="Landing" ref={(el) => (this.container = el)}>
-        <div className="Landing__bg" ref={(el) => this.domSmooth.push(el)} data-scroll-speed="-8">
+      <section className="Landing" ref={el => (this.container = el)}>
+        <div className="Landing__bg" ref={el => this.domSmooth.push(el)} data-scroll-speed="-8">
           <LandingBg />
         </div>
         <header className="Landing__header">
-          <h1 ref={(el) => this.domSmooth.push(el)} data-scroll-speed="0.1" className="Landing__header__title">
+          <h1 ref={el => this.domSmooth.push(el)} data-scroll-speed="0.1" className="Landing__header__title">
             {sanitazer('Nikita Krassiouk')}
           </h1>
           <BaseLink
@@ -134,7 +134,37 @@ class Landing extends React.PureComponent {
         <section className="Landing__works">
           <div className="Landing__works__content">
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://noaink.it"
+              target="_blank"
+            >
+              Noa Ink
+              <br />
+              <span>2023</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://marcopolo.paolettiguitars.com/"
+              target="_blank"
+            >
+              Marco Polo - paoletti Guitars
+              <br />
+              <span>2022</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.fadpro.it"
+              target="_blank"
+            >
+              Fadpro
+              <br />
+              <span>2022</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://ioleliquore.com/"
               target="_blank"
@@ -144,7 +174,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://paolettiguitars.com/"
               target="_blank"
@@ -154,7 +184,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://manovietoscane.it/"
               target="_blank"
@@ -164,7 +194,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.arredamentimacchini.com/"
               target="_blank"
@@ -174,7 +204,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://passionfruit.win/"
               target="_blank"
@@ -184,7 +214,7 @@ class Landing extends React.PureComponent {
               <span>2020</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://centralemontecatini.it/"
               target="_blank"
@@ -194,7 +224,7 @@ class Landing extends React.PureComponent {
               <span>2020</span>
             </BaseLink>
 
-           <BaseLink
+            <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://gbautomazione.it/"
@@ -206,7 +236,7 @@ class Landing extends React.PureComponent {
             </BaseLink>
 
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://biondibistrot.it/"
               target="_blank"
@@ -216,7 +246,7 @@ class Landing extends React.PureComponent {
               <span>2020</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://delave.it/"
               target="_blank"
@@ -226,7 +256,7 @@ class Landing extends React.PureComponent {
               <span>2018</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://jueclub.it/"
               target="_blank"
@@ -236,7 +266,7 @@ class Landing extends React.PureComponent {
               <span>2020</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.edilmema.it/"
               target="_blank"
@@ -246,7 +276,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://insegno.eu/"
               target="_blank"
@@ -256,7 +286,7 @@ class Landing extends React.PureComponent {
               <span>2021</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="http://brunoeluca.it/"
               target="_blank"
@@ -266,7 +296,7 @@ class Landing extends React.PureComponent {
               <span>2017</span>
             </BaseLink>
             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
+              ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://www.eco2000srl.it/"
               target="_blank"
@@ -288,7 +318,7 @@ Landing.propTypes = checkProps({
   previousRoute: PropTypes.string,
   loaded: PropTypes.bool,
   setLandingLoaded: PropTypes.func,
-  pageData: PropTypes.object,
+  pageData: PropTypes.object
 });
 
 Landing.defaultProps = {};
@@ -296,16 +326,19 @@ Landing.defaultProps = {};
 const mapStateToProps = (state, ownProps) => {
   return {
     previousRoute: state.previousRoute,
-    loaded: state.landingLoaded.loaded,
+    loaded: state.landingLoaded.loaded
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    setLandingLoaded: (val) => dispatch(setLandingLoaded(val)),
+    setLandingLoaded: val => dispatch(setLandingLoaded(val))
   };
 };
 
 Landing.defaultProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Transition(Landing));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Transition(Landing));
