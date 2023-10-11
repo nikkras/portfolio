@@ -133,26 +133,6 @@ class Landing extends React.PureComponent {
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
-             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
-              data-scroll-speed="0.8"
-              link="https://marcopolo.paolettiguitars.com/"
-              target="_blank"
-            >
-              Marco Polo - Paoletti Guitars
-              <br />
-              <span>2022</span>
-            </BaseLink>
-             <BaseLink
-              ref={(el) => this.domSmooth.push(el)}
-              data-scroll-speed="0.8"
-              link="https://www.fadpro.it/"
-              target="_blank"
-            >
-              Fadpro
-              <br />
-              <span>2022</span>
-            </BaseLink>
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
@@ -186,7 +166,7 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
-              link="https://ioleliquore-two.vercel.app/"
+              link="https://www.ioleliquore.com/"
               target="_blank"
             >
               i.o.l.e.
@@ -202,6 +182,36 @@ class Landing extends React.PureComponent {
               Paoletti Guitars
               <br />
               <span>2021</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.la-dogana.it/"
+              target="_blank"
+            >
+              La Dogana
+              <br />
+              <span>2022</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.kosinskibrand.com/"
+              target="_blank"
+            >
+              Kosinski
+              <br />
+              <span>2022</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.kosinskibrand.com/"
+              target="_blank"
+            >
+              Maratone Benessere Donna
+              <br />
+              <span>2022</span>
             </BaseLink>
             <BaseLink
               ref={el => this.domSmooth.push(el)}
@@ -243,7 +253,6 @@ class Landing extends React.PureComponent {
               <br />
               <span>2020</span>
             </BaseLink>
-
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
@@ -254,7 +263,6 @@ class Landing extends React.PureComponent {
               <br />
               <span>2019</span>
             </BaseLink>
-
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
