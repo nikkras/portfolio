@@ -276,6 +276,16 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
+              link="https://montecatinipadel.it/"
+              target="_blank"
+            >
+              Montecatini Padel
+              <br />
+              <span>2022</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
               link="https://gbautomazione.it/"
               target="_blank"
             >
