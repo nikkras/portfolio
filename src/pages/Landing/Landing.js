@@ -156,6 +156,36 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
+              link="https://noayanni.vercel.app/"
+              target="_blank"
+            >
+              Noa Yanni
+              <br />
+              <span>2024</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.womenhealthmarathon.com/"
+              target="_blank"
+            >
+              Women Health Marathon
+              <br />
+              <span>2024 - WORK IN PROGRESS</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.quadracapital.it/"
+              target="_blank"
+            >
+              Quadra Capital
+              <br />
+              <span>2024</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
               link="https://www.evare.it/"
               target="_blank"
             >
@@ -169,7 +199,7 @@ class Landing extends React.PureComponent {
               link="https://marcopolo.paolettiguitars.com/"
               target="_blank"
             >
-              Marco Polo - paoletti Guitars
+              Marco Polo - Paoletti Guitars
               <br />
               <span>2022</span>
             </BaseLink>
@@ -202,6 +232,16 @@ class Landing extends React.PureComponent {
               Paoletti Guitars
               <br />
               <span>2021</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.mysterycar.it/"
+              target="_blank"
+            >
+              MysteryCar
+              <br />
+              <span>2022</span>
             </BaseLink>
             <BaseLink
               ref={el => this.domSmooth.push(el)}
