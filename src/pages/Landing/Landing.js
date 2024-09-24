@@ -276,7 +276,7 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
-              link="https://www.kosinskibrand.com/"
+              link="https://www.maratonabenesseredonna.it/"
               target="_blank"
             >
               Maratone Benessere Donna
