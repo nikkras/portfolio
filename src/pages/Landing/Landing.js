@@ -112,7 +112,7 @@ class Landing extends React.PureComponent {
         </div>
         <header className="Landing__header">
           <h1 ref={el => this.domSmooth.push(el)} data-scroll-speed="0.1" className="Landing__header__title">
-            {sanitazer('Nikita Krassiouk')}
+            {sanitazer('nik.kras')}
           </h1>
           <BaseLink
             link="mailto:info@nikkras.com"
@@ -133,7 +133,7 @@ class Landing extends React.PureComponent {
         </header>
         <section className="Landing__works">
           <div className="Landing__works__content">
-            {/* <BaseLink
+            <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
               link="https://noaink.it"
@@ -162,7 +162,7 @@ class Landing extends React.PureComponent {
               Noa Yanni
               <br />
               <span>2024</span>
-            </BaseLink> */}
+            </BaseLink>
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
