@@ -71,7 +71,7 @@
     "glsl-hsl2rgb": "^1.1.0",
     "glsl-noise": "0.0.0",
     "glslify-loader": "^2.0.0",
-    "gsap": "2.0.2",
+    "gsap": "3.6.0",
     "gsap-promisify": "1.0.2",
     "history": "4.7.2",
     "howler": "2.0.9",
