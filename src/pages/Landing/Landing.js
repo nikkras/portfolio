@@ -136,6 +136,56 @@ class Landing extends React.PureComponent {
             <BaseLink
               ref={el => this.domSmooth.push(el)}
               data-scroll-speed="0.8"
+              link="https://pf.agency/"
+              target="_blank"
+            >
+              Passion Fruit
+              <br />
+              <span>2026</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://mavisped.it/"
+              target="_blank"
+            >
+              Mavisped
+              <br />
+              <span>2026</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://sokom.it/"
+              target="_blank"
+            >
+              Sokom
+              <br />
+              <span>2026</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://www.lattecnica.com/"
+              target="_blank"
+            >
+              LaT Tecnica
+              <br />
+              <span>2026</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
+              link="https://ilborgoagenziaimmobiliare.it/"
+              target="_blank"
+            >
+              Il Borgo Immobiliare
+              <br />
+              <span>2026</span>
+            </BaseLink>
+            <BaseLink
+              ref={el => this.domSmooth.push(el)}
+              data-scroll-speed="0.8"
               link="https://noaink.it"
               target="_blank"
             >
